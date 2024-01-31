@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "Cera Pro";
+  src: url("../fonts/CeraProMedium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  src: url("../fonts/CeraPro-Medium.woff2") format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  src: url("../fonts/CeraProBold.otf") format("opentype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  src: url("../fonts/CeraProBlack.otf") format("opentype");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  src: url("../fonts/CeraProLight.otf") format("opentype");
+  font-weight: lighter;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: "Cera Pro";
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.hero {
+  background-image: url("../images/hero-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.grid-pics {
+  grid-template-columns: 1fr 1.143fr;
+}
+
+@media screen and (max-width: 1023px) {
+  .mouse {
+    left: calc(50% - 16px);
+    /* transform: translateX(-50%); */
+  }
+
+  .grid-pics {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .modal-footer {
+    margin-top: -10%;
+  }
+
+   #castleImage {
+    width: auto;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .modal-footer {
+    margin-top: -250px;
+  }
+
+  #castleImage {
+    width: 100%;
+    height: auto;
+  }
+}

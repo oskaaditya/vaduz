@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="./libs/aframe-extras.js"></script>
+    <script src="./libs/gesture-detector.js"></script>
+    <script src="./libs/gesture-handler.js"></script>
+    <script src="./libs/model-viewer.js"></script>
+    <script src="./libs/screen-display/index.js"></script>
+    <script src="./libs/mainXR.js" type="module"></script>
+    <link rel="icon" href="https://www.liechtenstein-marketing.li/application/files/6616/0007/0960/favicon.png">
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+    <title>Vaduz Castle</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="./assets/arstyles.css">
+
+</head>
+  <body>
+    <a-scene
+        id="scene"
+        renderer="precision: high; antialias: true; colorManagement: false, physicallyCorrectLights: true; logarithmicDepthBuffer: false; sortObjects: true;"
+        shadow="type: pcfsoft;"
+        device-orientation-permission-ui="enabled: false"
+        xr-mode-ui="enabled: false"
+        loading-screen="dotsColor: #155cab; backgroundColor: #3a3e41;"
+        background="color:#1c1d22;"
+        scenestart="devMode: false;"
+        model-viewer
+        inspector="url: xxx"
+        >
+
+        <a-assets timeout="4000">
+
+            <img id="close_2d" src="./assets/2d/close.png">
+            <img id="home_2d" src="./assets/2d/home.png">
+            <img id="home2_2d" src="./assets/2d/home2.png">
+            <img id="b360_2d" src="./assets/2d/b360.png">
+            <img id="ar_2d" src="./assets/2d/ar.png">
+            <img id="ar2_2d" src="./assets/2d/ar2.png">
+            <img id="muteOn_2d" src="./assets/2d/sound_off.png">
+            <img id="next_vr1_2d" src="./assets/2d/vr1.png">
+      
+            <img id="innenhof_tag" src="./assets/2d/tags/innenhof.png">
+            <img id="speisesaal_tag" src="./assets/2d/tags/speisesaal.png">
+            <img id="vorraum_tag" src="./assets/2d/tags/vorraum.png">
+            <img id="kapelle_tag" src="./assets/2d/tags/kapelle.png">
+            <img id="bibliothek_tag" src="./assets/2d/tags/bibliothek.png">
+            <img id="vestibuhl_tag" src="./assets/2d/tags/vestibuhl.png">
+            <img id="sudrondell_tag" src="./assets/2d/tags/sudrondell.png">
+            <img id="holzbrucke_tag" src="./assets/2d/tags/holzbrucke.png">
+
+            <img id="innenhof_360" src="./assets/pics/innenhof.jpg">
+            <img id="speisesaal_360" src="./assets/pics/speisesaal.jpg">
+            <img id="vorraum_360" src="./assets/pics/vorraum.jpg">
+            <img id="kapelle_360" src="./assets/pics/kapelle.jpg">
+            <img id="bibliothek_360" src="./assets/pics/bibliothek.jpg">
+            <img id="vestibuhl_360" src="./assets/pics/vestibuhl.jpg">
+            <img id="sudrondell_360" src="./assets/pics/sudrondell.jpg">
+            <img id="holzbrucke_360" src="./assets/pics/holzbrucke.jpg">
+            
+      
+            <a-asset-item id="castle_3d" src="./assets/3d/castle.gltf"></a-asset-item>
+    
+            <video id="unmuteaudio" webkit-playsinline playsinline crossorigin="anonymous"  src="./assets/umuteaudio.mp4" preload="metadata" loop="false" muted></video>
+      
+        </a-assets>
+        <a-camera 
+            id="camera"
+            position="0 0 0"
+            camera="far:10000.00; fov:80.00; near:0.001;"
+            wasd-controls="enabled:false;"
+            cursor="rayOrigin: mouse; fuse: false; mouseCursorStylesEnabled:true;" 
+            raycaster="objects: .clickable; near: 0.001; far: 10000;"
+            look-controls="enabled: false; magicWindowTrackingEnabled: true; mouseEnabled: true; touchEnabled:true;"
+            
+            >
+            <a-entity id="tags" visible="true" scale="0.01 0.01 0.01" position="0 0.05 -0.1">
+              <a-plane id="tag_1" visible="false" position="0 0 0" scale="1 1 1" height="1" width="4.81" material="shader: flat; transparent: true;" src="#innenhof_tag" 
+              animation="property: components.material.material.opacity; to: 0; loop: false; dur: 1000; startEvents:fadeout;" animation__back="property: components.material.material.opacity; to: 1.0; loop: false; dur: 1; startEvents:fadeback;">
+              </a-plane>
+              <a-plane id="tag_2" visible="false" position="0 0 0" scale="1 1 1" height="1" width="4.796" material="shader: flat; transparent: true;" src="#speisesaal_tag" 
+              animation="property: components.material.material.opacity; to: 0; loop: false; dur: 1000; startEvents:fadeout;" animation__back="property: components.material.material.opacity; to: 1.0; loop: false; dur: 1; startEvents:fadeback;">
+              </a-plane>
+              <a-plane id="tag_3" visible="false" position="0 0 0" scale="1 1 1" height="2" width="6" material="shader: flat; transparent: true;" src="#vorraum_tag" 
+                animation="property: components.material.material.opacity; to: 0; loop: false; dur: 1000; startEvents:fadeout;" animation__back="property: components.material.material.opacity; to: 1.0; loop: false; dur: 1; startEvents:fadeback;">
+              </a-plane>
+              <a-plane id="tag_4" visible="false" position="0 0 0" scale="1 1 1" height="1" width="3.407" material="shader: flat; transparent: true;" src="#kapelle_tag" 
+                animation="property: components.material.material.opacity; to: 0; loop: false; dur: 1000; startEvents:fadeout;" animation__back="property: components.material.material.opacity; to: 1.0; loop: false; dur: 1; startEvents:fadeback;">
+              </a-plane>
+              <a-plane id="tag_5" visible="false" position="0 0 0" scale="1 1 1" height="1" width="5.661" material="shader: flat; transparent: true;" src="#bibliothek_tag" 
+                animation="property: components.material.material.opacity; to: 0; loop: false; dur: 1000; startEvents:fadeout;" animation__back="property: components.material.material.opacity; to: 1.0; loop: false; dur: 1; startEvents:fadeback;">
+              </a-plane> 
+              <a-plane id="tag_6" visible="false" position="0 0 0" scale="1 1 1" height="1" width="5.246" material="shader: flat; transparent: true;" src="#vestibuhl_tag" 
+                animation="property: components.material.material.opacity; to: 0; loop: false; dur: 1000; startEvents:fadeout;" animation__back="property: components.material.material.opacity; to: 1.0; loop: false; dur: 1; startEvents:fadeback;">
+              </a-plane>
+              <a-plane id="tag_7" visible="false" position="0 0 0" scale="1 1 1" height="1" width="6.092" material="shader: flat; transparent: true;" src="#sudrondell_tag" 
+                animation="property: components.material.material.opacity; to: 0; loop: false; dur: 1000; startEvents:fadeout;" animation__back="property: components.material.material.opacity; to: 1.0; loop: false; dur: 1; startEvents:fadeback;">
+              </a-plane>
+              <a-plane id="tag_8" visible="false" position="0 0 0" scale="1 1 1" height="1" width="6.346" material="shader: flat; transparent: true;" src="#holzbrucke_tag" 
+                animation="property: components.material.material.opacity; to: 0; loop: false; dur: 1000; startEvents:fadeout;" animation__back="property: components.material.material.opacity; to: 1.0; loop: false; dur: 1; startEvents:fadeback;">
+              </a-plane>  
+            </a-entity>
+            
+            
+            <a-entity id="ui" visible="true">
+
+                <a-plane id="arbtn" visible="true" scale="1 1 0.5" class="clickable" screen-display="keepaspect: false; position: percent; scale: pixels; ypos:94; height: 50; width: 215; zscale:1;"
+                        src="#ar_2d" material="shader: flat; transparent: true; alphaTest: 0.1">
+                </a-plane>
+      
+                <a-plane id="homebtn" visible="true" class="clickable"  screen-display="keepaspect: true; position: percent; scale: pixels; xpos:90; ypos:5; height: 50; width: 50;"
+                        src="#home_2d" material="shader: flat; transparent: true; alphaTest: 0.1" action-on-hover-home>
+                </a-plane>
+
+                <a-plane id="see360btn" visible="false"  screen-display="position:percent; scale: pixels; xpos:77; ypos:93.6; height: 50; width: 50;"
+                        src="#b360_2d" material="shader: flat; transparent: true; alphaTest: 0.1">
+                </a-plane>
+      
+                
+            </a-entity>
+
+            <a-entity id="castle" gltf-model="#castle_3d" visible="true" 
+                scale="1 1 1" position="0 -0.3 -1" rotation="0 0 0"
+                shadow="receive: false; cast: true"
+                class="clickable"
+                
+                >
+
+                <a-entity id="innenhof_1" visible="true" scale="0.02 0.02 0.02" position="-0.152 0.421 -0.085" rotation="" geometry="primitive: sphere" material="side: double; shader: flat" 
+                            btn360="room: 1;" class="clickable" action-on-hover="room:1;"></a-entity>
+                <a-entity id="speisesaal_2" visible="true" scale="0.02 0.02 0.02" position="-0.075 0.406 -0.012" rotation="" geometry="primitive: sphere" material="side: double; shader: flat"
+                            btn360="room: 2;" class="clickable" action-on-hover="room:2;"></a-entity>
+                <a-entity id="vorraum_3" visible="true" scale="0.02 0.02 0.02" position="-0.009 0.398 -0.009" rotation="" geometry="primitive: sphere" material="side: double; shader: flat"
+                            btn360="room: 3;" class="clickable" action-on-hover="room:3;"></a-entity>
+                <a-entity id="kapelle_4" visible="true" scale="0.02 0.02 0.02" position="0.063 0.406 -0.018" rotation="" geometry="primitive: sphere" material="side: double; shader: flat"
+                            btn360="room: 4;" class="clickable" action-on-hover="room:4;"></a-entity>
+                <a-entity id="bibliothek_5" visible="true" scale="0.02 0.02 0.02" position="0.063 0.425 -0.068" rotation="" geometry="primitive: sphere" material="side: double; shader: flat"
+                            btn360="room: 5;" class="clickable" action-on-hover="room:5;"></a-entity>
+                <a-entity id="vestibuhl_6" visible="true" scale="0.02 0.02 0.02" position="0.060 0.467 -0.113" rotation="" geometry="primitive: sphere" material="side: double; shader: flat"
+                            btn360="room: 6;" class="clickable" action-on-hover="room:6;"></a-entity>
+                <a-entity id="sudrondell_7" visible="true" scale="0.02 0.02 0.02" position="0.131 0.468 -0.169" rotation="" geometry="primitive: sphere" material="side: double; shader: flat"
+                            btn360="room: 7;" class="clickable" action-on-hover="room:7;"></a-entity>
+                <a-entity id="holzbrucke_8" visible="true" scale="0.02 0.02 0.02" position="0.184 0.246 0.115" rotation="" geometry="primitive: sphere" material="side: double; shader: flat"
+                            btn360="room: 8;" class="clickable" action-on-hover="room:8;"></a-entity>
+            </a-entity>
+
+        </a-camera>
+
+        <a-sky visible="false" id="sky" src="" rotation="0 -130 0"></a-sky>
+
+        
+
+    </a-scene>
+    <div style="display: none;" >
+        <model-viewer class="model-viewer" src="./assets/3d/castle.gltf" ios-src="./assets/3d/castle.usdz"  ar ar-modes="scene-viewer quick-look" camera-controls autoplay="true" shadow-intensity="1" touch-action="pan-y">
+          <div class="progress-bar hide" slot="progress-bar">
+              <div class="update-bar"></div>
+          </div>
+          <button slot="ar-button" id="ar-button">
+          </button>
+        </model-viewer>  
+      </div>
+  </body>
+</html>
+

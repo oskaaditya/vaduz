@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaduz Castle</title>
+  <link rel="stylesheet" href="../assets/styles/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wowjs@1.1.3/css/libs/animate.min.css" />
+  <link rel="icon" href="https://www.liechtenstein-marketing.li/application/files/6616/0007/0960/favicon.png">
+  <script>
+    tailwind.config = {
+      theme: {
+        screens: {
+          md: "1024px",
+          lg: "1440px",
+        },
+        extend: {
+          colors: {
+            clifford: "#da373d",
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body>
+  <section class="hero relative">
+    <div
+      class="lg:max-w-[1200px] md:max-w-[944px] h-[100vh] mx-auto relative px-[24px] md:px-0">
+      <nav class="hidden h-[80px] md:flex justify-between items-center">
+        <img src="../assets/images/logo.svg" class="h-[42px] object-cover" />
+        <!-- Replace "#" in the href with the link you desire  -->
+        <ul class="list-none flex gap-[24px] text-white text-sm font-medium">
+          <li><a class="text-abogoboga" href="#activities">Activities</a></li>
+          <li><a href="#manual">Manual</a></li>
+          <!-- <li><a href="#testimonials">Testimonials</a></li> -->
+        </ul>
+        <div class="flex p-[1px] bg-[#cbd5e9]">
+          <a href="../"
+            class="grid place-content-center text-xs text-[#1C1D22] bg-white w-[28px] h-[28px] cursor font-medium">
+            DE
+          </a>
+          <a href="./" class="text-[#64748B] grid place-content-center text-xs w-[28px] h-[28px] cursor">
+            EN
+          </a>
+        </div>
+      </nav>
+      <nav class="relative h-[80px] flex md:hidden justify-between items-center">
+        <img src="../assets/images/logo.svg" class="h-[42px] object-cover" />
+        <img src="../assets/images/hamburger.svg" class="object-cover w-[32px] h-[32px] cursor-pointer" alt=""
+          onclick="toggleMobileNav(true)" />
+        <div class="p-[24px] fixed left-0 right-0 bottom-0 top-0 bg-white hidden" id="mobile-nav">
+          <div class="flex items-center justify-between mb-[43px]">
+            <img src="../assets/images/logo-black.svg" class="h-[42px] object-cover" />
+            <img src="../assets/images/close.svg" class="h-[32px] object-cover cursor-pointer"
+              onclick="toggleMobileNav(false)" />
+          </div>
+          <ul class="list-none flex flex-col mb-[26px] gap-[24px] text-[#1C1D22] text-[18px] font-medium">
+            <!-- Replace "#" in the href with the link you desire  -->
+            <li><a class="text-abogoboga" href="#activities">Activities</a></li>
+            <li><a href="#manual">Manual</a></li>
+            <!-- <li><a href="#testimonials">Testimonials</a></li> -->
+          </ul>
+          <div class="inline-flex p-[1px] bg-[#cbd5e9] text-[18px]">
+            <a href="/" class="grid place-content-center text-[#1C1D22] bg-white w-[35px] h-[40px] cursor font-medium">
+              DE
+            </a>
+            <a href="/en" class="grid place-content-center w-[35px] h-[40px] font-medium cursor text-[#64748B]">
+              EN
+            </a>
+          </div>
+        </div>
+      </nav>
+      <div class="lg:pt-[124px] md:pt-[99px] pt-[48px]">
+        <p class="text-white text-sm font-medium wow fadeInUp">
+          VIRTUAL TOUR
+        </p>
+        <h1 class="text-medium text-white font-semibold mt-[32px] mb-[16px] text-[56px] leading-[64px] wow fadeInUp">
+          Discover <br />
+          Vaduz Castle
+        </h1>
+        <p class="text-white text-base wow fadeInUp">
+          Explore the Castle in 3D and Augmented Reality
+        </p>
+        <div class="mt-[32px] flex md:flex-row flex-col gap-[16px]">
+          <div id="openxr"
+            class="bg-white hover:bg-[#f0f0f0] transition-all text-[#1C1D22] text-bold cursor-pointer py-[14px] px-[24px] flex items-center justify-center md:justify-start wow fadeInUp"
+            data-wow-delay=".5s" data-modal-target="modal3d">
+            <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg"
+              class="object-cover w-[24px] pr-[8px]">
+              <path
+                d="M12.9168 0.1872L16.9344 4.2048V4.5792L12.9168 8.5824L11.7792 7.4448L14.0832 5.1408L13.0752 5.184L0.648 5.1984V3.5568H13.0752L14.04 3.6L11.7792 1.3392L12.9168 0.1872Z"
+                fill="currentColor" />
+            </svg>
+            <p class="font-bold text-sm">Discover now</p>
+          </div>
+          <a href="#howItWorks"
+            class="border-white hover:bg-[#f0f0f0] hover:border-[#f0f0f0] hover:text-[#1C1D22] transition-all text-white border text-bold cursor-pointer py-[14px] px-[24px] flex items-center justify-center md:justify-start wow fadeInUp cursor-pointer"
+            data-wow-delay="1s">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"
+              class="object-cover w-[24px] pr-[8px]">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M9.99967 1.33337C4.93706 1.33337 0.833008 5.43743 0.833008 10.5C0.833008 15.5626 4.93706 19.6667 9.99967 19.6667C15.0623 19.6667 19.1663 15.5626 19.1663 10.5C19.1663 5.43743 15.0623 1.33337 9.99967 1.33337ZM7.99946 7.26344C7.91634 7.37447 7.91634 7.57333 7.91634 7.97107V13.0289C7.91634 13.4266 7.91634 13.6255 7.99946 13.7365C8.07189 13.8332 8.18277 13.8938 8.30332 13.9024C8.44166 13.9123 8.60894 13.8047 8.94351 13.5896L12.8773 11.0607C13.1677 10.8741 13.3128 10.7808 13.363 10.6621C13.4068 10.5585 13.4068 10.4415 13.363 10.3378C13.3128 10.2191 13.1677 10.1258 12.8773 9.93918L8.94351 7.41029C8.60894 7.19521 8.44166 7.08767 8.30332 7.09755C8.18277 7.10616 8.07189 7.16669 7.99946 7.26344Z"
+                fill="currentColor" />
+            </svg>
+            <p class="font-bold text-sm">How it works</p>
+          </a>
+        </div>
+      </div>
+      <img src="../assets/images/mouse.svg"
+        class="w-[32px] object-cover absolute md:left-0 mouse bottom-[80px] animate-bounce" alt="" />
+    </div>
+    <!-- Castle Popup Modal -->
+    <div id="modal3d" tabindex="-1" aria-hidden="true"
+      class="hidden overflow-y-hidden overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full max-h-screen">
+      <div class="relative w-full max-h-screen">
+        <!-- Modal content -->
+        <div class="relative bg-[#1C1D22] shadow min-h-screen">
+          <!-- Modal header -->
+          <div class="flex items-center justify-between p-4 md:p-5 z-20">
+            <div>
+              <button type="button"
+                class="text-white bg-white/30 hover:bg-gray-200 hover:text-gray-900 rounded-full text-sm w-10 h-10 ms-auto inline-flex justify-center items-center">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.5 5H11.9344C14.9816 5 16.5053 5 17.0836 5.54729C17.5836 6.02037 17.8051 6.71728 17.6702 7.39221C17.514 8.17302 16.2701 9.05285 13.7823 10.8125L9.71772 13.6875C7.2299 15.4471 5.98599 16.327 5.82984 17.1078C5.69486 17.7827 5.91642 18.4796 6.41636 18.9527C6.99474 19.5 8.51836 19.5 11.5656 19.5H12.5M8 5C8 6.65685 6.65685 8 5 8C3.34315 8 2 6.65685 2 5C2 3.34315 3.34315 2 5 2C6.65685 2 8 3.34315 8 5ZM22 19C22 20.6569 20.6569 22 19 22C17.3431 22 16 20.6569 16 19C16 17.3431 17.3431 16 19 16C20.6569 16 22 17.3431 22 19Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+            <div>
+              <img src="../assets/images/logo-modal.svg" alt="logo-modal" class="w-full h-auto">
+            </div>
+            <div>
+              <button type="button"
+                class="text-white bg-white/30 hover:bg-gray-200 hover:text-gray-900 rounded-full text-sm w-10 h-10 ms-auto inline-flex justify-center items-center"
+                data-modal-hide="modal3d">
+                <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 14 14">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+                <span class="sr-only">Close modal</span>
+              </button>
+            </div>
+          </div>
+          <!-- Modal body -->
+          <div class="w-full h-[100vh]">
+            <img id="castleImage" alt="castle-modal"
+              class="w-auto h-full sm:-mt-[100px] md:-mt-[80px] z-1 max-h-screen mx-auto">
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer flex items-center justify-between p-4 md:p-5 z-20 sm:-mt-[80px] md:-mt-[75px]">
+            <div>
+              <button type="button"
+                class="text-white bg-white/30 hover:bg-gray-200 hover:text-gray-900 rounded-full text-sm w-10 h-10 ms-auto inline-flex justify-center items-center">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M2 8.37722C2 8.0269 2 7.85174 2.01462 7.70421C2.1556 6.28127 3.28127 5.1556 4.70421 5.01462C4.85174 5 5.03636 5 5.40558 5C5.54785 5 5.61899 5 5.67939 4.99634C6.45061 4.94963 7.12595 4.46288 7.41414 3.746C7.43671 3.68986 7.45781 3.62657 7.5 3.5C7.54219 3.37343 7.56329 3.31014 7.58586 3.254C7.87405 2.53712 8.54939 2.05037 9.32061 2.00366C9.38101 2 9.44772 2 9.58114 2H14.4189C14.5523 2 14.619 2 14.6794 2.00366C15.4506 2.05037 16.126 2.53712 16.4141 3.254C16.4367 3.31014 16.4578 3.37343 16.5 3.5C16.5422 3.62657 16.5633 3.68986 16.5859 3.746C16.874 4.46288 17.5494 4.94963 18.3206 4.99634C18.381 5 18.4521 5 18.5944 5C18.9636 5 19.1483 5 19.2958 5.01462C20.7187 5.1556 21.8444 6.28127 21.9854 7.70421C22 7.85174 22 8.0269 22 8.37722V16.2C22 17.8802 22 18.7202 21.673 19.362C21.3854 19.9265 20.9265 20.3854 20.362 20.673C19.7202 21 18.8802 21 17.2 21H6.8C5.11984 21 4.27976 21 3.63803 20.673C3.07354 20.3854 2.6146 19.9265 2.32698 19.362C2 18.7202 2 17.8802 2 16.2V8.37722Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M12 16.5C14.2091 16.5 16 14.7091 16 12.5C16 10.2909 14.2091 8.5 12 8.5C9.79086 8.5 8 10.2909 8 12.5C8 14.7091 9.79086 16.5 12 16.5Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+            <div>
+              <button
+                class="text-white bg-transparent border hover:bg-gray-200 hover:text-gray-900 rounded-full text-sm w-12 h-10 ms-auto inline-flex justify-center items-center">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 20V4M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+            <div>
+              <button type="button"
+                class="text-white bg-white/30 hover:bg-gray-200 hover:text-gray-900 rounded-full text-sm w-10 h-10 ms-auto inline-flex justify-center items-center">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M19.7479 5.00005C21.1652 6.97029 22 9.38768 22 12C22 14.6124 21.1652 17.0298 19.7479 19M15.7453 8.00005C16.5362 9.13388 17 10.5128 17 12C17 13.4873 16.5362 14.8662 15.7453 16M9.63432 4.36573L6.46863 7.53142C6.29568 7.70437 6.2092 7.79085 6.10828 7.85269C6.01881 7.90752 5.92127 7.94792 5.81923 7.97242C5.70414 8.00005 5.58185 8.00005 5.33726 8.00005H3.6C3.03995 8.00005 2.75992 8.00005 2.54601 8.10904C2.35785 8.20492 2.20487 8.3579 2.10899 8.54606C2 8.75997 2 9.04 2 9.60005V14.4C2 14.9601 2 15.2401 2.10899 15.454C2.20487 15.6422 2.35785 15.7952 2.54601 15.8911C2.75992 16 3.03995 16 3.6 16H5.33726C5.58185 16 5.70414 16 5.81923 16.0277C5.92127 16.0522 6.01881 16.0926 6.10828 16.1474C6.2092 16.2093 6.29568 16.2957 6.46863 16.4687L9.63431 19.6344C10.0627 20.0627 10.2769 20.2769 10.4608 20.2914C10.6203 20.304 10.7763 20.2394 10.8802 20.1177C11 19.9774 11 19.6745 11 19.0687V4.93142C11 4.3256 11 4.0227 10.8802 3.88243C10.7763 3.76073 10.6203 3.69614 10.4608 3.7087C10.2769 3.72317 10.0627 3.93736 9.63432 4.36573Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Castle Popup Modal -->
+  </section>
+  <section id="activities" class="lg:max-w-[1080px] md:max-w-[944px] m-auto lg:py-[120px] py-[80px] px-[24px] md:px-0">
+    <p class="font-medium text-[#1C1D22] mb-[24px] font-medium text-sm wow fadeIn">
+      Activities
+    </p>
+    <h2
+      class="mb-[40px] text-[#1C1D22] text-[32px] md:text-[40px] font-medium md:max-w-[592px] leading-[120%] wow fadeIn">
+      Immerse yourself in the princely world of Liechtenstein
+    </h2>
+    <div class="grid md:grid-cols-2 lg:gap-x-[150px] md:gap-x-[140px] lg:gap-y-[16px] md:gap-y-[14px] gap-y-[52px]">
+      <div class="lg:mt-[104px] md:mt-[100px] wow fadeInLeft">
+        <img src="../assets/images/Image-2.webp" class="w-full md:h-[400px] object-cover mb-[32px] h-[360px] bg-right"
+          alt="" />
+        <h3 class="text-[#1C1D22] leading-[125%] lg:text-[32px] text-[28px] text-[28px] font-medium">
+          City Backstage Tour Monarchy & Democracy
+        </h3>
+        <p class="py-[16px] text-[#64748B]">
+          Take a look behind the scenes of this small princely state. Between direct democracy and monarchy, this system
+          is unique in the world and has been a model of success for 150 years.
+        </p>
+        <div class="flex gap-[24px]">
+          <div class="flex items-center">
+            <img src="../assets/images/marker.svg" class="object-fit w-[20px] h-[20px] mr-[8px]" alt="" />
+            <p class="text-[#475569] font-medium">Vaduz</p>
+          </div>
+          <div class="flex items-center">
+            <img src="../assets/images/clock.svg" class="object-fit w-[20px] h-[20px] mr-[8px]" alt="" />
+            <p class="text-[#475569] font-medium">2 hours</p>
+          </div>
+        </div>
+        <a href="https://tourismus.li/en/lie/offer/City%20Backstage%20Tour%20Monarchy%20%26%20Democracy/" class="flex mt-[24px] text-[#28D2B0] items-center hover:text-[#198973] transition-all">
+          <svg width="19" height="10" viewBox="0 0 19 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M14.256 0.4L18.608 4.752V5.088L14.256 9.44L13.248 8.448L16.112 5.584L14.992 5.616L0.784 5.632V4.192H14.992L16.08 4.224L13.248 1.392L14.256 0.4Z"
+              fill="currentColor" />
+          </svg>
+          <p class="font-medium ml-[8px]">Find Out More</p>
+        </a>
+      </div>
+      <div class="wow fadeInRight">
+        <img src="../assets/images/Image.webp" class="w-full md:h-[400px] object-cover mb-[32px] h-[360px] bg-right"
+          alt="" />
+        <h3 class="text-[#1C1D22] leading-[125%] lg:text-[32px] text-[28px] text-[28px] font-medium">
+          Princely Theatre
+        </h3>
+        <p class="py-[16px] text-[#64748B]">
+          The old cinema in Vaduz offers you a cinematic insight into our country. You will learn about the history of
+          the castle and the residence of the princely family and gain exclusive insights behind the scenes of Vaduz
+          Castle.
+        </p>
+        <div class="flex gap-[24px]">
+          <div class="flex items-center">
+            <img src="../assets/images/marker.svg" class="object-fit w-[20px] h-[20px] mr-[8px]" alt="" />
+            <p class="text-[#475569] font-medium">Vaduz</p>
+          </div>
+          <div class="flex items-center">
+            <img src="../assets/images/clock.svg" class="object-fit w-[20px] h-[20px] mr-[8px]" alt="" />
+            <p class="text-[#475569] font-medium">20 minutes</p>
+          </div>
+        </div>
+        <a href="https://tourismus.li/en/lie/place/Princely%20Theatre/" class="flex mt-[24px] text-[#28D2B0] items-center hover:text-[#198973] transition-all">
+          <svg width="19" height="10" viewBox="0 0 19 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M14.256 0.4L18.608 4.752V5.088L14.256 9.44L13.248 8.448L16.112 5.584L14.992 5.616L0.784 5.632V4.192H14.992L16.08 4.224L13.248 1.392L14.256 0.4Z"
+              fill="currentColor" />
+          </svg>
+          <p class="font-medium ml-[8px]">Find Out More</p>
+        </a>
+      </div>
+      <div class="lg:mt-[104px] md:mt-[86px] wow fadeInLeft">
+        <img src="../assets/images/Image-1.webp" class="w-full md:h-[400px] object-cover mb-[32px] h-[360px] bg-right"
+          alt="" />
+        <h3 class="text-[#1C1D22] leading-[125%] lg:text-[32px] text-[28px] text-[28px] font-medium">
+          Liechtenstein TreasureChamber
+        </h3>
+        <p class="py-[16px] text-[#64748B]">
+          The Liechtenstein TreasureChamber in Vaduz is unique in the Alpine region and displays one-of-a-kind artefacts
+          that are closely associated with Liechtenstein and cannot be found anywhere else in this form or in this
+          compilation.
+        </p>
+        <div class="flex gap-[24px]">
+          <div class="flex items-center">
+            <img src="../assets/images/marker.svg" class="object-fit w-[20px] h-[20px] mr-[8px]" alt="" />
+            <p class="text-[#475569] font-medium">Vaduz</p>
+          </div>
+          <div class="flex items-center">
+            <img src="../assets/images/clock.svg" class="object-fit w-[20px] h-[20px] mr-[8px]" alt="" />
+            <p class="text-[#475569] font-medium">30 - 60 minutes</p>
+          </div>
+        </div>
+        <a href="https://tourismus.li/en/lie/place/Liechtenstein%20TreasureChamber/" class="flex mt-[24px] text-[#28D2B0] items-center hover:text-[#198973] transition-all">
+          <svg width="19" height="10" viewBox="0 0 19 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M14.256 0.4L18.608 4.752V5.088L14.256 9.44L13.248 8.448L16.112 5.584L14.992 5.616L0.784 5.632V4.192H14.992L16.08 4.224L13.248 1.392L14.256 0.4Z"
+              fill="currentColor" />
+          </svg>
+          <p class="font-medium ml-[8px]">Find Out More</p>
+        </a>
+      </div>
+      <div class="wow fadeInRight">
+        <img src="../assets/images/Image-3.webp" class="w-full md:h-[400px] object-cover mb-[32px] h-[360px] bg-right"
+          alt="" />
+        <h3 class="text-[#1C1D22] leading-[125%] lg:text-[32px] text-[28px] text-[28px] font-medium">
+          The Prince of Liechtenstein Winery
+        </h3>
+        <p class="py-[16px] text-[#64748B]">
+          Experience the range of fine wines from the Prince of Liechtenstein's court winery. A tasting gives you a
+          detailed insight into the world of princely wine and its history.
+        </p>
+        <div class="flex gap-[24px]">
+          <div class="flex items-center">
+            <img src="../assets/images/marker.svg" class="object-fit w-[20px] h-[20px] mr-[8px]" alt="" />
+            <p class="text-[#475569] font-medium">Vaduz</p>
+          </div>
+          <div class="flex items-center">
+            <img src="../assets/images/clock.svg" class="object-fit w-[20px] h-[20px] mr-[8px]" alt="" />
+            <p class="text-[#475569] font-medium">1 - 2 hours</p>
+          </div>
+        </div>
+        <a href="https://tourismus.li/en/lie/place/Restaurant%20at%20the%20Prince%20of%20Liechtenstein%20Winery/" class="flex mt-[24px] text-[#28D2B0] items-center hover:text-[#198973] transition-all">
+          <svg width="19" height="10" viewBox="0 0 19 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M14.256 0.4L18.608 4.752V5.088L14.256 9.44L13.248 8.448L16.112 5.584L14.992 5.616L0.784 5.632V4.192H14.992L16.08 4.224L13.248 1.392L14.256 0.4Z"
+              fill="currentColor" />
+          </svg>
+          <p class="font-medium ml-[8px]">Find Out More</p>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="overflow-hidden px-[24px] md:px-0">
+    <div class="lg:max-w-[1280px] md:max-w-[944px] m-auto grid grid-pics">
+      <div class="py-[60px] md:py-[80px] lg:py-[120px] md:pr-[40px] lg:pr-[80px] relative">
+        <div class="absolute bg-[#3A3E41] top-0 bottom-0 right-[-24px] md:right-0 left-[-500px]"></div>
+        <div class="relative">
+          <p class="text-white text-[32px] md:text-[40px] leading-[120%] font-medium mb-[16px]">
+            The Princely Family <br />
+            and Vaduz Castle
+          </p>
+          <p class="text-white text-[18px] leading-[155%] ">
+            The Princely House of Liechtenstein spans centuries of history and also gave the Principality of
+            Liechtenstein its name. The House and family members are committed to the country and its people in a
+            variety of ways.
+          </p>
+          <p class="text-white text-[18px] leading-[155%] mt-4">
+            Vaduz Castle towers around 120 metres above the capital city of Vaduz. It is the landmark of Liechtenstein's
+            capital and can be seen from afar.
+          </p>
+          <div class="lg:mt-[48px] mt-[16px] flex flex-col md:flex-row gap-[16px]">
+            <a href="https://fuerstenhaus.li/en/princely-house/"
+              class="bg-[#28D2B0] hover:bg-[#198973] transition-all text-white text-bold cursor-pointer py-[14px] px-[24px] flex items-center justify-center md:justify-start bg-[#28D2B0]">
+              <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="object-cover w-[26px] pr-[8px]">
+                <path d=" M12.558 0.431999L16.464 4.338V4.702L12.558 8.594L11.452 7.488L13.692 5.248L12.712 5.29L0.63
+                5.304V3.708H12.712L13.65 3.75L11.452 1.552L12.558 0.431999Z" fill="currentColor" />
+              </svg>
+              <p class="font-bold text-sm">More about Vaduz Castle</p>
+            </a>
+            <a href="https://maps.app.goo.gl/HEzfp2quU75pA15a9"
+              class="border-[#28D2B0] text-[#28D2B0] hover:border-[#198973] hover:bg-[#198973] hover:text-white transition-all border text-bold cursor-pointer py-[14px] px-[24px] flex items-center justify-center md:justify-start">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="object-cover w-[26px] pr-[8px]">
+                <g clip-path="url(#clip0_295_383)">
+                  <path
+                    d="M7.50033 14.9998L1.66699 18.3332V4.99984L7.50033 1.6665M7.50033 14.9998L13.3337 18.3332M7.50033 14.9998V1.6665M13.3337 18.3332L18.3337 14.9998V1.6665L13.3337 4.99984M13.3337 18.3332V4.99984M13.3337 4.99984L7.50033 1.6665"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_295_383">
+                    <rect width="20" height="20" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <p class="font-bold text-sm">Location</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="relative grid place-content-center lg:place-content-center md:place-content-start md:pt-[80px] lg:pt-0">
+        <div class="absolute bg-[#28D2B0] top-0 bottom-0 right-[-500px] left-[-24px] md:left-0"></div>
+        <div class="relative md:pl-[28px] lg:pl-[40px] py-[60px] md:py-0 md:mr-[-12px] lg:mr-0">
+          <div class="grid grid-cols-1 md:grid-cols-2 md:h-[361px] gap-[2px]">
+            <div class="grid grid-cols-2 md:grid-cols-1 gap-[2px] h-[129px] md:h-auto">
+              <img src="../assets/images/mg3.webp" class="object-cover w-full h-[129px] md:h-full wow bounceIn"
+                data-wow-duration="2s" alt="" />
+              <img src="../assets/images/mg1.webp" class="object-cover w-full h-[129px] md:h-full wow bounceIn"
+                data-wow-delay=".5s" data-wow-duration="2s" alt="" />
+            </div>
+            <div class="order-first md:order-none h-[259px] md:h-auto wow bounceIn">
+              <img src="../assets/images/mg2.webp" class="object-cover h-full w-full wow bounceIn" data-wow-delay="1s"
+                data-wow-duration="2s" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="howItWorks" class="bg-[#F8F9FB]">
+    <div class="lg:max-w-[1200px] md:max-w-[944px] m-auto lg:py-[120px] py-[80px] text-center px-[24px] md:px-0">
+      <span class="text-[#1C1D22] text-sm font-medium leading-[142%]">How it works</span>
+      <h5
+        class="text-[#1C1D22] font-medium text-[32px] md:text-[40px] leading-[120%] mb-[56px] mt-[24px] lg:max-w-[962px] mx-auto">
+        Step-by-step guide for using the AR <br>
+        and 360-degree experience
+      </h5>
+      <img src="../assets/images/Video-EN.png" class="w-full h-[300px] md:h-[598px] object-cover wow fadeIn" alt="" />
+      <a id="openxr2"
+        class="bg-[#28D2B0] text-white hover:bg-[#198973] transition-all inline-flex text-bold cursor-pointer py-[14px] px-[24px] mt-[56px] items-center">
+        <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="object-cover w-[24px] pr-[8px]">
+          <path
+            d="M12.558 0.431999L16.464 4.338V4.702L12.558 8.594L11.452 7.488L13.692 5.248L12.712 5.29L0.63 5.304V3.708H12.712L13.65 3.75L11.452 1.552L12.558 0.431999Z"
+            fill="currentColor" />
+        </svg>
+        <p class="font-bold text-sm">Discover Now</p>
+      </a>
+    </div>
+  </section>
+  <section class="hidden">
+    <div class="lg:max-w-[1200px] md:max-w-[944px] m-auto lg:py-[120px] py-[80px] text-center px-[24px] md:px-0">
+      <div class="flex items-center md:items-end flex-col md:flex-row justify-center md:justify-between mb-[56px]">
+        <h5 class="text-[#1C1D22] font-medium text-[32px] md:text-[40px] leading-[120%] lg:tracking-[0.5px]">
+          What our users are saying
+        </h5>
+        <p class="text-[#1C1D22] mb-[24px] md:mb-[10px] font-medium text-sm order-first md:order-none">
+          TESTIMONIALS
+        </p>
+      </div>
+      <div class="grid lg:grid-cols-4 md:grid-cols-2 lg:items-start gap-[24px] text-left">
+        <div class="bg-[#28D2B0] p-[24px] text-[#1C1D22] text-[18px] md:leading-[155%] wow fadeInUp">
+          <p class="h-[315.5px] md:h-auto">
+            One of the most interesting things is the rich history found in
+            every corner of the castle. The views from the castle tower
+            provide a spectacular panorama, while the rooms inside.
+          </p>
+          <p class="md:mt-[16px] lg:mt-[56px] text-base font-medium leading-[150%]">
+            Floyd Miles
+          </p>
+        </div>
+        <div class="bg-[#F8F9FB] p-[24px] text-[#1C1D22] text-[18px] md:leading-[155%] wow fadeInUp"
+          data-wow-delay=".3s">
+          <p class="h-[218px] md:h-auto">
+            While the rooms inside are filled with antique artefacts and
+            furniture that bring to life the atmosphere of a bygone era.
+          </p>
+          <p class="md:mt-[16px] lg:mt-[56px] text-base font-medium leading-[150%]">
+            Floyd Miles
+          </p>
+        </div>
+        <div class="bg-[#FDD360] p-[24px] text-[#1C1D22] text-[18px] md:leading-[155%] wow fadeInUp"
+          data-wow-delay=".6s">
+          <p class="h-[259.5px] md:h-auto">
+            One of the most interesting things is the rich history found in
+            every corner of the castle. The views from the castle tower
+            provide a spectacular panorama, while the rooms inside.
+          </p>
+          <p class="md:mt-[16px] lg:mt-[56px] text-base font-medium leading-[150%]">
+            Floyd Miles
+          </p>
+        </div>
+        <div class="bg-[#F8F9FB] p-[24px] text-[#1C1D22] text-[18px] md:leading-[155%] wow fadeInUp"
+          data-wow-delay=".9s">
+          <p class="h-[218px] md:h-auto">
+            While the rooms inside are filled with antique artefacts and
+            furniture that bring to life the atmosphere of a bygone era.
+          </p>
+          <p class="md:mt-[16px] lg:mt-[56px] text-base font-medium leading-[150%]">
+            Floyd Miles
+          </p>
+        </div>
+      </div>
+      <div class="border-t border-[#F1F5F9] lg:my-[56px] my-[40px]"></div>
+      <div class="flex flex-col md:flex-row md:items-center text-left gap-[20px] md:gap-[80px]">
+        <p class="text-[#1C1D22] text-base text-center md:text-left lg:text-[20px] lg:leading-[180%] flex-1">
+          Not only that, the tour guides at this castle are very knowledgeable
+          and enthusiastic. They provided in-depth information about the
+          castle's history, interesting stories, and facts that made my visit
+          even more meaningful. I can also feel the elegance and luxury of the
+          noble lifestyle of that era.
+        </p>
+        <div
+          class="text-center md:text-left text-[#1C1D22] font-medium md:leading-[150%] text-[18px] md:w-[114px] border-t border-[#E2E8F0] pt-[20px]">
+          Floyd Miles
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-[80px] border-t border-b border-[#E2E8F0] px-[24px] md:px-0 overflow-x-hidden">
+    <div class="md:max-w-[792px] mx-auto flex items-center md:justify-between flex-col md:flex-row gap-[64px]">
+      <div class="flex-1 text-center md:text-left">
+        <p class="text-[32px] md:text-[40px] text-[#1C1D22] font-medium leading-[120%] md:mb-[24px] mb-[20px]">
+          Experience the history and culture of Liechtenstein
+        </p>
+        <p class="text-[18px] text-[#1C1D22] leading-[155%] mb-[16px]">
+          Download the LiStory app for free:
+        </p>
+        <div class="flex md:gap-x-[16px] gap-x-[12px] justify-center md:justify-start">
+          <img id="apple" src="../assets/images/app-store.png" class="h-[42px] md:h-[48px] object-cover" />
+          <img id="android" src="../assets/images/google-play.png" class="h-[42px] md:h-[48px] object-cover" />
+        </div>
+      </div>
+      <img src="../assets/images/iphone.webp"
+        class="h-[308px] object-cover mr-[-120px] md:mr-[-156px] order-first md:order-none wow slideInRight" alt="" />
+    </div>
+  </section>
+  <section class="py-[80px] px-[24px] md:px-0">
+    <div class="lg:max-w-[1200px] md:max-w-[792px] mx-auto">
+      <div class="flex flex-col md:flex-row items-center gap-[64px]">
+        <div
+          class="lg:w-[560px] w-[327px] md:w-[371px] h-[300px] lg:h-[394px] object-cover order-last md:order-none relative">
+          <img src="../assets/images/contact1.webp"
+            class="wow fadeInDown absolute top-0 left-0 object-cover w-[198px] md:w-[225px] h-[222px] lg:w-[339px] lg:h-[292px]"
+            alt="">
+          <img data-wow-delay=".3s" src="../assets/images/contact2.webp"
+            class="wow fadeInUp absolute bottom-0 right-0 object-cover w-[198px] md:w-[225px] h-[222px] lg:w-[339px] lg:h-[292px]"
+            alt="">
+        </div>
+        <div class="flex-1 lg:pr-[24px]">
+          <p class="text-[40px] text-[#1C1D22] font-medium leading-[120%] mb-[16px]">
+            Stay up to date
+          </p>
+          <p class="text-[18px] text-[#1C1D22] leading-[155%] md:mb-[24px] md:h-[100px] mb-[16px] h-[100px] md:h-auto">
+            Get tips and information about our activities around Vaduz Castle and Liechtenstein.
+          </p>
+          <div class="flex flex-col md:flex-row">
+            <input type="email"
+              class="block h-[48px] border border-[#E2E8F0] border-r-0 py-[14px] px-[20px] lg:w-[236px] text-sm md:mr-[1px] mb-[1px] md:mb-0"
+              placeholder="Enter e-mail address" id="inputemail" />
+            <a href="mailto:yourmail@example.com" id="sendemail"
+              class="bg-[#28D2B0] hover:bg-[#198973] transition-all text-white font-bold cursor-pointer h-[48px] grid place-content-center px-[24px] text-sm">
+              Register now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-[#3A3E41] px-[24px] md:px-0">
+    <div class="lg:max-w-[1200px] md:max-w-[944px] mx-auto">
+      <div class="md:py-[80px] lg:pt-[80px] md:pt-[64px] py-[48px] md:flex lg:gap-x-[100px] md:gap-x-[97px]">
+        <div class="flex-1">
+          <img src="../assets/images/logo.svg" class="h-[40px] object-cover mb-[40px]" alt="" />
+          <div class="flex gap-x-[12px]">
+            <a href="https://www.linkedin.com/company/liechtenstein-marketing" title="LinkedIn">
+              <img src="../assets/images/linkedin.svg" class="object-cover w-[32px] h-[32px]" alt="" />
+            </a>
+            <a href="https://www.facebook.com/FuerstentumLIE/" title="Facebook">
+              <img src="../assets/images/facebook.svg" class="object-cover w-[32px] h-[32px]" alt="" />
+            </a>
+            <a href="https://twitter.com/li_travel" title="Twitter">
+              <img src="../assets/images/twitter-x.svg" class="object-cover w-[32px] h-[32px]" alt="" />
+            </a>
+            <a href="https://www.youtube.com/user/LiechtensteinTravel" title="Youtube">
+              <img src="../assets/images/youtube.svg" class="object-cover w-[32px] h-[32px]" alt="" />
+            </a>
+            <a href="https://www.instagram.com/fuerstentumliechtenstein/" title="Instagram">
+              <img src="../assets/images/instagram.svg" class="object-cover w-[32px] h-[32px]" alt="" />
+            </a>
+          </div>
+        </div>
+        <div class="mt-[48px] md:mt-0">
+          <p class="text-white font-bold mb-[16px]">
+            Liechtenstein Marketing
+          </p>
+          <ul class="list-none flex flex-col gap-y-[12px]">
+            <li>
+              <a href="https://tourismus.li/" class="text-white text-base">tourismus.li</a>
+            </li>
+            <li>
+              <a href="https://liechtenstein.li/" class="text-white text-base">liechtenstein.li</a>
+            </li>
+            <li>
+              <a href="https://www.liechtenstein-marketing.li/marke-liechtenstein" class="text-white text-base">Liechtenstein Marketing</a>
+            </li>
+            <li>
+              <a href="https://www.liechtenstein-marketing.li/medienportal" class="text-white text-base">Media Portal</a>
+            </li>
+          </ul>
+        </div>
+        <div class="lg:mr-[100px] mt-[40px] md:mt-0">
+          <p class="text-white font-bold mb-[16px]">Contact</p>
+          <ul class="list-none flex flex-col gap-y-[12px]">
+            <li class="text-white text-base">+423 239 63 63</li>
+            <li class="text-white text-base">info@liechtenstein.li</li>
+            <li class="text-white text-base leading-[150%]">
+              Liechtenstein Marketing <br />
+              Äulestrasse 30,<br />
+              9490 Vaduz, Liechtenstein
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="lg:pb-[48px] pb-[32px] flex flex-col md:flex-row md:items-center text-white md:justify-between text-xs gap-y-[8px]">
+        <p id="copyright"></p>
+        <div class="flex gap-x-[24px]">
+          <a href="https://www.liechtenstein-marketing.li/datenschutz">Privacy Policy</a>
+          <a href="https://www.liechtenstein-marketing.li/impressum">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/wowjs@1.1.3/dist/wow.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+  <script>
+    (function () {
+      document
+        .querySelector("#inputemail")
+        .addEventListener("onchange", function (e) {
+          const value = e.target.value;
+          console.log(value, "asadas");
+          document
+            .querySelector("sendemail")
+            .setAttribute("href", `mailto:${value}`);
+        });
+    })();
+
+    function toggleMobileNav(isEnable) {
+      document.querySelector("#mobile-nav").classList.toggle("hidden");
+    }
+
+    function updateImageSource() {
+      const screenWidth = window.innerWidth;
+
+      let imagePath;
+
+      if (screenWidth < 640) {
+        imagePath = '../assets/images/castle-mobile.png';
+      } else {
+        imagePath = '../assets/images/castle.png';
+      }
+
+      document.getElementById('castleImage').src = imagePath;
+    }
+
+    updateImageSource();
+
+    window.addEventListener('resize', updateImageSource);
+  </script>
+  <script>
+    // Get the current year
+    var currentYear = new Date().getFullYear();
+
+    // Display the copyright text with the current year
+    document.getElementById('copyright').innerHTML = '&copy; ' + currentYear +
+      ' Liechtenstein Tourism. All rights reserved.';
+  </script>
+  <script>
+    var openxr = document.getElementById("openxr");
+    var openxr2 = document.getElementById("openxr2");
+    var android = document.getElementById("android");
+    var apple = document.getElementById("apple");
+
+    openxr.addEventListener("click", () => {
+    window.open("../ar/index.html","_self");
+    console.log("ar button clicked")
+    });
+    openxr2.addEventListener("click", () => {
+    window.open("../ar/index.html","_self");
+    console.log("ar button clicked")
+    });
+    android.addEventListener("click", () => {
+    window.open("https://play.google.com/store/apps/details?id=li.listory.app","_self");
+    });
+    apple.addEventListener("click", () => {
+    window.open("https://apps.apple.com/ch/app/listory/id1462266258","_self");
+    });
+
+  </script>
+</body>
+
+</html>
